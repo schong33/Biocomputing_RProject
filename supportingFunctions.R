@@ -18,14 +18,12 @@ csvConvert<-function(){
 }
 
 # Function 2: compile .csv files in a directory
-# usage: compileData(dirPath=directory, NAmode="remove", country="X", destPath=destination)
+# usage: compileData(dirPath=directory, NAmode="remove", country="X", dataName="XData")
       # directory="/Users/annamccartan/Library/CloudStorage/GoogleDrive-annamac2021@gmail.com/My Drive/School/Fall 2022/Biocomputing/R/Biocomputing_RProject/Rproject2022/countryX"
-      # destination="/Users/annamccartan/Library/CloudStorage/GoogleDrive-annamac2021@gmail.com/My Drive/School/Fall 2022/Biocomputing/R/Biocomputing_RProject/Rproject2022\\compiledData.csv"
-# dirPath: string, path to desired directory for function application
 # NAmode: string, accepts "remove" "warn" or "include" commands, otherwise returns an error
 # country: string, country name
-# destPath: string, path to desired directory/filename for storage of compiled .csv file
-compileData<-function(dirPath, NAmode="remove", country, destPath){
+# dataName: string, desired filename for compiled .csv file
+compileData<-function(dirPath, NAmode="remove", country, dataName){
   # set working directory
   setwd(dirPath)
   # set variables
@@ -78,7 +76,7 @@ compileData<-function(dirPath, NAmode="remove", country, destPath){
     print("Invalid input for NAMode")
   }
   # make allData dataframe a .csv file
-  write.csv(x=allData, file=destPath)
+  write.csv(x=allData, file=dataName)
 }
 
 # Function 3: summarize compiled data
