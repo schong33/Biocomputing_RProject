@@ -5,7 +5,7 @@
 
 #Custom Function 3
 
-DataSet<-read.table("allData.csv",header=TRUE, sep=",", stringsAsFactors=FALSE)
+DataSet<-read.table("Rproject2022/allData.csv",header=TRUE, sep=",", stringsAsFactors=FALSE)
 
 #Number of screens run can be determined by the number of rows(patients) in the DataSet
 NumberOfScreens <- nrow(DataSet)
