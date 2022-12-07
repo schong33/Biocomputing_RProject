@@ -91,14 +91,7 @@ FemaleTotal=(FemaleInfected+FemaleNotInfected)
 PercentFemaleInfected<-FemaleInfected/FemaleTotal
 
 
-#Age distribution of all patients plotted
-ggplot(data=DataSet,aes(x=age))+
-  geom_freqpoly()+
-  theme_classic()+
-  xlim(0,100)
-
-
-#create new data frame with infected patient data
+#New data frame with infected patient data
 InfectedPlot=data.frame()
 
 for(i in 1:nrow(DataSet)){
@@ -111,9 +104,9 @@ for(i in 1:nrow(DataSet)){
   }
  }
 
-#Age distribution of all infected patients plotted
+#Age density plot of all infected patients plotted
 ggplot(data=InfectedPlot,aes(x=age))+
-  geom_freqpoly()+
+  geom_density()+
   theme_classic()+
   xlim(0,100)
 
