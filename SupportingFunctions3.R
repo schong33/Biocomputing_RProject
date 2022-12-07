@@ -110,3 +110,6 @@ ggplot(data=InfectedPlot,aes(x=age))+
   theme_classic()+
   xlim(0,100)
 
+
+mean(DataSet$age)
+mean(InfectedPlot$age)
