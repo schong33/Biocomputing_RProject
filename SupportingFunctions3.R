@@ -97,26 +97,23 @@ ggplot(data=DataSet,aes(x=age))+
   theme_classic()+
   xlim(0,100)
 
-#Age distribution of all infected patients plotted
-ggplot(data=DataSet,aes(x=age))+
-  geom_freqpoly()+
-  theme_classic()+
-  xlim(0,100)
 
+#create new data frame with infected patient data
+InfectedPlot=data.frame()
 
 for(i in 1:nrow(DataSet)){
   SumRow<-sum(DataSet$marker01[i], DataSet$marker02[i],DataSet$marker03[i],DataSet$marker04[i], DataSet$marker05[i],DataSet$marker06[i],DataSet$marker07[i], DataSet$marker08[i],DataSet$marker09[i],DataSet$marker10[i])
   
   if(SumRow>0){
     
-    InfectedPlotData<-
-      
-    
-  }else{
-    
-    if(SumRow==0)
-      NotInfected<-NotInfected+1
+    InfectedPlot= rbind(InfectedPlot, DataSet[i,])
+   
   }
-} 
+ }
 
+#Age distribution of all infected patients plotted
+ggplot(data=InfectedPlot,aes(x=age))+
+  geom_freqpoly()+
+  theme_classic()+
+  xlim(0,100)
 
