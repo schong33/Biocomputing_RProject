@@ -100,9 +100,10 @@ for(i in 1:nrow(DataSet)){
   if(SumRow>0){
     
     InfectedPlot= rbind(InfectedPlot, DataSet[i,])
-   
+    
   }
- }
+}
+
 
 #Age density plot of all infected patients plotted
 ggplot(data=InfectedPlot,aes(x=age))+
@@ -113,3 +114,26 @@ ggplot(data=InfectedPlot,aes(x=age))+
 
 mean(DataSet$age)
 mean(InfectedPlot$age)
+
+#Question 1
+#Create dataset with infected patients in each country
+for(i in 1:nrow(DataSet)){
+  SumRow<-sum(DataSet$marker01[i], DataSet$marker02[i],DataSet$marker03[i],DataSet$marker04[i], DataSet$marker05[i],DataSet$marker06[i],DataSet$marker07[i], DataSet$marker08[i],DataSet$marker09[i],DataSet$marker10[i])
+  
+  if(SumRow>0){
+    
+    InfectedPlot= rbind(InfectedPlot, DataSet[i,])
+    
+  }
+}
+
+#Density plot of all infected patients plotted for each country
+ggplot(data=InfectedPlot,aes(x=dayOfYear))+
+  geom_density()+
+  theme_classic()+
+  xlim(100,185)
+
+#After running the whole script for each country, we get two plots for the number of infected patients by day of year for each country
+#Clearly Country X's infection begins earlier than Country Y thus the disease outbreak likely began in Country X 
+
+
