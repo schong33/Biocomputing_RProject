@@ -137,3 +137,26 @@ ggplot(data=InfectedPlot,aes(x=dayOfYear))+
 #Clearly Country X's infection begins earlier than Country Y thus the disease outbreak likely began in Country X 
 
 
+
+#Question2
+#Use infected patient data sets to analyze markers found on last day for infections in each country
+
+for(i in 1:nrow(InfectedPlot)){
+  
+  if(InfectedPlot$dayOfYear[i]==175){
+    
+    LastDayInfected= rbind(LastDayInfected, InfectedPlot[i,])
+    
+  }
+}
+
+sum(LastDayInfected$marker01)
+sum(LastDayInfected$marker02)
+sum(LastDayInfected$marker03)
+sum(LastDayInfected$marker04)
+sum(LastDayInfected$marker05)
+sum(LastDayInfected$marker06)
+sum(LastDayInfected$marker07)
+sum(LastDayInfected$marker08)
+sum(LastDayInfected$marker09)
+sum(LastDayInfected$marker010)
