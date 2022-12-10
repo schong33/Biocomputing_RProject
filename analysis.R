@@ -25,8 +25,17 @@ write.csv(compiledData, file="compData.csv")
 # use summData to process the data included in the entire data set
 library(ggplot2)
 summData("compData.csv")
+
 # answer two questions
-  # in which country did the disease outbreak likely begin?
-  # if country Y develops a vaccine, is it likely to work for country X's citizens?
-# provide graphical evidence for answers
-# use comments in analysis.R to explain rational and how graphical evidence supports answers
+# in which country did the disease outbreak likely begin?
+  # perform summData on country X data
+  setwd(Xpath)
+  summData("Xdata.csv")
+  # perform summData on country Y data
+  setwd(Ypath)
+  summData("Ydata.csv")
+  # produces density plot of infected patients in each country over time
+  # after graphing both, Country X's infection clearly begins earlier than Country Y's
+  # thus, the disease outbreak likely began in Country X
+
+# if country Y develops a vaccine, is it likely to work for country X's citizens?
